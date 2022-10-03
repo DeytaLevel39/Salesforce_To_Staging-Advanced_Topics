@@ -1,0 +1,19 @@
+ {
+      "data": {
+        "payload": {
+            "OrderNumber": "1",
+            "CustomerID":  "a1w5f0001MM6nAAG",
+            "LineItemID":  "i1w5f0001MM6nAAG",
+            "ProductID": "p1w5f0001MM6nAAG",
+            "LastModifiedDate": "2022-09-15T15:17:09.002",
+            "CreatedDate": "2022-09-15T15:17:09.002",
+            "ChangeEventHeader": {
+              "entityName": "Order",
+              "changeType": "CREATE",
+              "changedFields": [],
+              "recordIDs": ["o1w5f0001MM6nAAG"]
+              }
+          }
+      }
+    }
+    

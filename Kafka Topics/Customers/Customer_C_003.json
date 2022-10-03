@@ -1,0 +1,19 @@
+
+    {
+      "data": {
+        "payload": {
+            "CustomerNumber": "3",
+            "First_Name":  "Abdul",
+            "Last_Name":  "Jones",
+            "LastModifiedDate": "2022-09-15T15:17:09.002",
+            "CreatedDate": "2022-09-15T15:17:09.002",
+            "ChangeEventHeader": {
+              "entityName": "Customer",
+              "changeType": "CREATE",
+              "changedFields": [],
+              "recordIDs": ["a1w5f3001MM6nAAG"]
+              }
+          }
+      }
+    }
+    

@@ -1,0 +1,14 @@
+{
+  "data": {
+    "payload": {
+        "LastModifiedDate": "2022-09-27T16:21:09.002",
+        "CreatedDate": "2022-09-15T15:17:09.002",
+        "ChangeEventHeader": {
+          "entityName": "Customer",
+          "changeType": "DELETE",
+          "changedFields": [],
+          "recordIDs": ["a1w5f00001MM6nAAG"]
+          }
+      }
+  }
+}
