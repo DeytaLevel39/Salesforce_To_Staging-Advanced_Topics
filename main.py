@@ -16,4 +16,4 @@ CREDS = service_account.Credentials.from_service_account_file(KEY_PATH, scopes=[
 client = bigquery.Client(credentials=CREDS, project=CREDS.project_id)
 #Create the watchdog & observer
 my_event_handler = create_watchdog(client)
-create_observer(my_event_handler,"Kafka Topics\Customers")
+create_observer(my_event_handler,"Kafka Topics")

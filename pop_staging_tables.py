@@ -3,6 +3,7 @@ from create_customer_record import *
 from create_order_record import *
 from create_product_record import *
 from update_customer_record import *
+from delete_customer_record import *
 def process_json_message(client, path):
     #Open the JSON message
     with open(path) as json_file:
@@ -21,4 +22,4 @@ def process_json_message(client, path):
         elif payload["ChangeEventHeader"]["changeType"]=="UPDATE":
             update_customer(payload,client)
         elif payload["ChangeEventHeader"]["changeType"]=="DELETE":
-            print("Let's soft delete",payload["ChangeEventHeader"]["recordIDs"][0])
+            delete_customer(payload,client)

@@ -4,10 +4,17 @@ def create_customer(payload, client):
     first_name = payload["First_Name"]
     last_name = payload["Last_Name"]
     createddate = payload["CreatedDate"]
-    lastmodifieddate = payload["CreatedDate"]
+    lastmodifieddate = payload["LastModifiedDate"]
+    CRUD_flag = payload["ChangeEventHeader"]["changeType"][0]
     # Construct a JSON in a format that can be inserted into a table
-    customer_json = [{"customer_id": customer_id, "customer_number": customer_number, "first_name": first_name,
-                      "last_name": last_name, "lastmodifieddate": lastmodifieddate, "createddate": createddate}]
+    customer_json = [{"customer_id": customer_id,
+                      "customer_number": customer_number,
+                      "first_name": first_name,
+                      "last_name": last_name,
+                      "lastmodifieddate": lastmodifieddate,
+                      "createddate": createddate,
+                      "CRUD_flag":CRUD_flag
+                      }]
     # Do the insertion of the row into the customers table in BigQuery Staging
     errors = client.insert_rows_json("steadfast-task-363413.staging.customers", customer_json)
     if errors != []:
