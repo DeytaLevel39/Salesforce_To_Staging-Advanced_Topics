@@ -1,16 +1,16 @@
  {
       "data": {
         "payload": {
-            "ProductNumber": "1",
-            "ProductName":  "Walkers Crisps",
-            "UnitPrice":  "0.70",
+            "Order_Number": "2",
+            "Order_Price": 15.00,
+            "CustomerID":  "a1w5f0001MM6nAAG",
             "LastModifiedDate": "2022-09-15T15:17:09.002",
             "CreatedDate": "2022-09-15T15:17:09.002",
             "ChangeEventHeader": {
-              "entityName": "Product",
+              "entityName": "Order",
               "changeType": "CREATE",
               "changedFields": [],
-              "recordIDs": ["p1w5f0001MM6nAAG"]
+              "recordIDs": ["o2w5f0001MM6nAAG"]
               }
           }
       }

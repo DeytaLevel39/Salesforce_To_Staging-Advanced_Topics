@@ -1,2 +1,3 @@
-truncate table staging.customers;
-truncate table data_vault.hub_customer;
+truncate table staging.repl_orders;
+truncate table staging.repl_customers;
+

@@ -6,18 +6,19 @@ def create_customer(payload, client):
     createddate = payload["CreatedDate"]
     lastmodifieddate = payload["LastModifiedDate"]
     CRUD_flag = payload["ChangeEventHeader"]["changeType"][0]
-    # Construct a JSON in a format that can be inserted into a table
-    customer_json = [{"customer_id": customer_id,
-                      "customer_number": customer_number,
-                      "first_name": first_name,
-                      "last_name": last_name,
-                      "lastmodifieddate": lastmodifieddate,
-                      "createddate": createddate,
-                      "CRUD_flag":CRUD_flag
-                      }]
-    # Do the insertion of the row into the customers table in BigQuery Staging
-    errors = client.insert_rows_json("steadfast-task-363413.staging.customers", customer_json)
-    if errors != []:
-        print("Encountered errors while inserting rows: {}".format(errors))
-    else:
-        print("A new customer record has been created")
+    #Insert a new customer record if its not a duplicate
+    insert_stmt = """
+    merge into staging.repl_customers target
+    using (select '%s' as customer_id,
+        '%s' as customer_number ,
+        '%s' as first_name,
+        '%s' as last_name,
+        cast('%s' as datetime) as lastmodifieddate,
+        cast('%s' as datetime) as createddate,
+        '%s' as CRUD_flag) as source
+    on source.customer_id = target.customer_id and source.lastmodifieddate = target.lastmodifieddate
+    when not matched then insert row"""%(customer_id,customer_number,first_name,last_name,lastmodifieddate,createddate,CRUD_flag)
+    # Do the insertion of the row into the customers table in BigQuery
+    insert = client.query(insert_stmt)
+    # Wait for job to end
+    insert.result()
