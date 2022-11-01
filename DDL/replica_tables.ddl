@@ -14,6 +14,9 @@ CREATE OR REPLACE TABLE staging.repl_uk_customers
   CRUD_flag STRING
 );
 
+alter table staging.repl_UK_customers add column title string;
+alter table staging.repl_UK_customers add column wealth_bracket int;
+
 # Create the tables - this is what dbtvault calls raw staging
 CREATE OR REPLACE TABLE staging.repl_us_customers
 (
