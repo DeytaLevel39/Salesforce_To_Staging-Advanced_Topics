@@ -1,19 +1,19 @@
-
-    {
-      "data": {
-        "payload": {
-            "CustomerNumber": "0",
-            "First_Name":  "Randy",
-            "Last_Name":  "Garcia",
-            "LastModifiedDate": "2022-09-26T15:17:09.002",
-            "CreatedDate": "2022-09-26T15:17:09.002",
-            "ChangeEventHeader": {
-              "entityName": "Customer",
-              "changeType": "CREATE",
-              "changedFields": [],
-              "recordIDs": ["a1w5f0001MM6nAAG"]
-              }
+{
+  "data": {
+    "payload": {
+        "CustomerNumber": "0",
+        "Title": "Mr",
+        "First_Name":  "Randy",
+        "Last_Name":  "Garcia",
+        "Wealth_Bracket": 4,
+        "LastModifiedDate": "2022-09-26T15:17:09.002",
+        "CreatedDate": "2022-09-26T15:17:09.002",
+        "ChangeEventHeader": {
+          "entityName": "Customer",
+          "changeType": "CREATE",
+          "changedFields": [],
+          "recordIDs": ["a1w5f0001MM6nAAG"]
           }
       }
-    }
-    
+  }
+}

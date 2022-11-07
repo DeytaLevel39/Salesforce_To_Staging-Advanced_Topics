@@ -1,0 +1,15 @@
+{
+  "data": {
+    "payload": {
+        "First_Name":  "Zara",
+        "LastModifiedDate": "2022-10-14T16:21:09.002",
+        "CreatedDate": "2022-09-15T15:17:09.002",
+        "ChangeEventHeader": {
+          "entityName": "Customer",
+          "changeType": "UPDATE",
+          "changedFields": ["First_Name","LastModifiedDate"],
+          "recordIDs": ["a1w5f0001MM6nAAG"]
+        }
+      }
+  }
+}

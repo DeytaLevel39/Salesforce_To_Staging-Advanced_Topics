@@ -1,0 +1,19 @@
+{
+  "data": {
+    "payload": {
+        "CustomerNumber": "7",
+        "Title": "Mr",
+        "First_Name":  "Rishi",
+        "Last_Name":  "Sunak",
+        "Wealth_Bracket": 1,
+        "LastModifiedDate": "2022-11-01T15:17:09.002",
+        "CreatedDate": "2022-11-01T15:17:09.002",
+        "ChangeEventHeader": {
+          "entityName": "Customer",
+          "changeType": "CREATE",
+          "changedFields": [],
+          "recordIDs": ["a1w5f0007MM6nAAG"]
+          }
+      }
+  }
+}
