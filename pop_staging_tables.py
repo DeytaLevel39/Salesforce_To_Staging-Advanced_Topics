@@ -39,13 +39,18 @@ def process_json_message(client, path):
                 cast(current_datetime() as string) as applieddate,
                 CRUD_flag
                 from (select *,row_number() over(partition by customer_number order by lastmodifieddate desc) as rn 
-                      from data_vault.sat_%s_customer s, data_vault.hub_customer h, data_vault.ref_record_source r 
-                      where h.customer_hk = s.customer_hk
-                      and s.record_source = r.id
-                      and r.country_code = '%s'
-                      and lastmodifieddate < '%s')
+                      from (select s.customer_id, h.customer_number, s.first_name, s.last_name, s.lastmodifieddate,
+                            s.createddate, s.applieddate, s.CRUD_flag, s.title, s.wealth_bracket 
+                            from data_vault.sat_%s_customer s, data_vault.hub_customer h, data_vault.ref_record_source r 
+                            where h.customer_hk = s.customer_hk
+                            and s.record_source = r.id
+                            and r.country_code = '%s'
+                            and lastmodifieddate < '%s'
+                            union all
+                            select * from staging.repl_%s_customers
+                            where lastmodifieddate < '%s'))
                 where rn = 1
-                and customer_id = '%s'""" %(country_code, country_code, lastmodifieddate, record_id)
+                and customer_id = '%s'""" %(country_code, country_code, lastmodifieddate, country_code, lastmodifieddate, record_id)
                 update_customer(query,payload,client,country_code, True)
                 #Then we need to apply the update to all records > lastmodifieddate
                 query = """
